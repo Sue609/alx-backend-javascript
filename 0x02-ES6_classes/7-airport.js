@@ -20,8 +20,8 @@ class Airport {
     this._code = newCode;
   }
 
-  toString() {
-    return `Airport [${this._code}] { _name: '${this._name}', _code: '${this._code}' }`;
+  get [Symbol.toStringTag]() {
+    return this._code;
   }
 }
 

@@ -1,7 +1,14 @@
 function cleanSet(set, startString) {
-  const filteredValues = [...set].filter((value) => value.startsWith(startString));
-  const cleanedString = filteredValues.map((value) => value.substring(startString.length)).join('-');
-  return cleanedString;
+  let result = '';
+
+  for (const value of set) {
+    if (value.startsWith(startString)) {
+      const trimmedValue = value.substring(startString.length);
+      result += (result.length === 0) ? trimmedValue : `-${trimmedValue}`;
+    }
+  }
+
+  return result;
 }
 
 export default cleanSet;

@@ -45,3 +45,13 @@ export class Director implements DirectorInterface {
     return new Director();
   }
   
+  export function isDirector(employee: (Director | Teacher)) {
+    return employee instanceof Director;
+  }
+  
+  export function executeWork(employee: (Director | Teacher)) {
+    if (isDirector(employee)) {
+      return (employee as Director).workDirectorTasks();
+    }
+    return (employee as Teacher).workTeacherTasks();
+  }
